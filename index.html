@@ -8,16 +8,31 @@
   <script src="controllers/QuestionsController.js"></script>
   <script src="controllers/ResponsesController.js"></script>
   <script src="controllers/jquery-1.11.3.js"></script>
-  <script src="services/QuestionsFactory.js"></script>
+  <script src="services/ResponsesFactory.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 
 <body>
   <div class="container">
     <div ng-controller="QuestionsCtrl">
-      <div ng-repeat ="question in questions">
-        {{question}}
+        <form ng-submit=ResponsesFactory.addResponse() class="form-inline" role="form" ng-hide="responses.length >= 5">
+          <div >
+            {{questions[0]}}
+              <input type="text" class="form-control input-sm" ng-model="ResponsesFactory.responseString1" required>
+              {{questions[1]}}
+                <input type="text" class="form-control input-sm" ng-model="ResponsesFactory.responseString2" required>
+          </div>
+          <button class="btn btn-default btn-sm" type="submit">Submit</button>
+        </form>
+    </div>
 
+    <div ng-controller="ResponsesCtrl">
+      <div class="col-md-6" ng-show="responses.length >= 5">
+        <ul>
+          <li ng-repeat="item in responses">
+            Eyecolor={{item[0].answer}}  Hair color= {{item[1].answer}}
+          </li>
+      </ul>
       </div>
 
     </div>

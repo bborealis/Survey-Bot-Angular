@@ -1,11 +1,11 @@
-surbeyBot.factory("QuestionsFactory", function QuestionsFactory() {
+surveyBot.factory("QuestionsFactory", function QuestionsFactory() {
   var factory = {};
-  factory.questions = [];
+  factory.responses = [];
 
-  factory.addQuestion = function() {
-    var student = { name: factory.studentName, permissionSlip: false };
-    factory.students.push(student);
-    factory.studentName = null;
+  factory.addResponse = function() {
+    var response = { answer: factory.responseString };
+    factory.responses.push(response);
+    factory.responseString = null;
   };
 
   factory.deleteStudent = function(student) {

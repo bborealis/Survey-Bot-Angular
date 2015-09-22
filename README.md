@@ -1,12 +1,12 @@
-# _Student Roster_
+# _SurveyBot_
 
-##### _Student Roster App 9/22/2015_
+##### _Survey App 9/22/2015_
 
 #### By Brian Borealis and Mike Chastain
 
 ## Description
 
-_App that allows a user to enter names into a student roster._
+_App that allows a user to answer survey questions and uses multiple angular controllers._
 
 ## Setup
 
@@ -15,7 +15,7 @@ _Clone and open index.html in your browser._
 ## Technologies Used
 
 _This project makes use of:
-Angular, Javascript, jQuery, HTML, CSS Bootstrap._
+Angular, Javascript, HTML, CSS, Bootstrap._
 
 
 ### Legal

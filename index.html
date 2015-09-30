@@ -2,42 +2,65 @@
 <html ng-app="surveyBot">
 
 <head>
-  <title>Student App</title>
-  <script src="lib/angular.js"></script>
-  <script src="app.js"></script>
-  <script src="controllers/QuestionsController.js"></script>
-  <script src="controllers/ResponsesController.js"></script>
-  <script src="controllers/jquery-1.11.3.js"></script>
-  <script src="services/ResponsesFactory.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <title>Survey</title>
+    <script src="lib/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/QuestionsController.js"></script>
+    <script src="controllers/ResponsesController.js"></script>
+    <script src="controllers/jquery-1.11.3.js"></script>
+    <script src="services/ResponsesFactory.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 
 <body>
-  <div class="container">
-    <div ng-controller="QuestionsCtrl">
-        <form ng-submit=ResponsesFactory.addResponse() class="form-inline" role="form" ng-hide="responses.length >= 5">
-          <div >
-            {{questions[0]}}
-              <input type="text" class="form-control input-sm" ng-model="ResponsesFactory.responseString1" required>
-              {{questions[1]}}
-                <input type="text" class="form-control input-sm" ng-model="ResponsesFactory.responseString2" required>
-          </div>
-          <button class="btn btn-default btn-sm" type="submit">Submit</button>
-        </form>
+    <div class="container">
+        <h1>Eye/Hair Color Survey</h1>
+        <div ng-controller="QuestionsCtrl">
+            <form ng-submit=ResponsesFactory.addResponse() class="form-inline" role="form" ng-hide="responses.length >= 5">
+                <div>
+                    <h3>{{questions[0]}}</h3>
+                    <!-- <ul> -->
+
+                    <p>
+                        <input type="radio" class="form-control input-sm" ng-model="ResponsesFactory.responseString1" value="Brown">Brown
+                        <input type="radio" class="form-control input-sm" ng-model="ResponsesFactory.responseString1" value="Blue">Blue
+                        <input type="radio" class="form-control input-sm" ng-model="ResponsesFactory.responseString1" value="Green">Green</p>
+                    <p>
+                        <input type="radio" class="form-control input-sm" ng-model="ResponsesFactory.responseString1" value="Hazel">Hazel
+                        <input type="radio" class="form-control input-sm" ng-model="ResponsesFactory.responseString1" value="Grey">Grey
+                        <input type="radio" class="form-control input-sm" ng-model="ResponsesFactory.responseString1" value="Amber">Amber</p>
+
+                    <!-- </ul> -->
+
+                    <h3>{{questions[1]}}</h3>
+                    <p>
+                        <input type="radio" class="form-control input-sm" ng-model="ResponsesFactory.responseString2" value="Brown">Brown
+                        <input type="radio" class="form-control input-sm" ng-model="ResponsesFactory.responseString2" value="Black">Black
+                        <input type="radio" class="form-control input-sm" ng-model="ResponsesFactory.responseString2" value="Blonde">Blonde
+                        <input type="radio" class="form-control input-sm" ng-model="ResponsesFactory.responseString2" value="Red">Red</p>
+                    <p>
+                        <input type="radio" class="form-control input-sm" ng-model="ResponsesFactory.responseString2" value="Auburn">Auburn
+                        <input type="radio" class="form-control input-sm" ng-model="ResponsesFactory.responseString2" value="Grey">Grey
+                        <input type="radio" class="form-control input-sm" ng-model="ResponsesFactory.responseString2" value="White">White
+                        <input type="radio" class="form-control input-sm" ng-model="ResponsesFactory.responseString2" value="Other">Other</p>
+                </div>
+                <button class="btn btn-warning" type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div ng-controller="ResponsesCtrl">
+            <div class="col-md-6" ng-show="responses.length >= 5">
+                <ul>
+                    <li ng-repeat="item in responses">
+                        <p>Eye color=  {{item[0].answer}}</p>
+                        <p>Hair color= {{item[1].answer}}</p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
     </div>
-
-    <div ng-controller="ResponsesCtrl">
-      <div class="col-md-6" ng-show="responses.length >= 5">
-        <ul>
-          <li ng-repeat="item in responses">
-            Eyecolor={{item[0].answer}}  Hair color= {{item[1].answer}}
-          </li>
-      </ul>
-      </div>
-
-    </div>
-
-  </div>
 </body>
 
 </html>

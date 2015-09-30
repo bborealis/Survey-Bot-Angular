@@ -6,8 +6,10 @@ surveyBot.factory("ResponsesFactory", function ResponsesFactory() {
     var response = [{ answer: factory.responseString1 },{ answer: factory.responseString2 }];
     console.log(response);
     factory.responses.push(response);
-    factory.responseString = null;
+    factory.responseString1 = null;
+    factory.responseString2 = null;
     console.log(factory.responses);
+
 
   };
 
